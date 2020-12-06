@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 namespace Grandma.PF
 {
-    public class PFChargingState : TimedState
+    public class ChargingState : TimedState
     {
+        public ChargingData Data { get; set; }
+
         public StateTransition CancelTransition { get; } = new StateTransition();
 
         public override State TransitionTo()

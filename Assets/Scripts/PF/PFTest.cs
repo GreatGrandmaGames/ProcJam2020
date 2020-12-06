@@ -5,6 +5,15 @@ public class PFTest : MonoBehaviour
 {
     [SerializeField]
     private PF m_PF;
+    [SerializeField]
+    private PFData m_PFData;
+
+    private void Start()
+    {
+        m_PF.SetData(m_PFData);
+
+        m_PF.CurrentAmmo.Subscribe(ammo => Debug.Log(ammo));
+    }
 
     private void Update()
     {

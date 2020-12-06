@@ -121,6 +121,49 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &273056809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 273056811}
+  - component: {fileID: 273056810}
+  m_Layer: 0
+  m_Name: PFProj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &273056810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273056809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c130e11af6e0303439333a91e0c99d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &273056811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273056809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954ea1abb2424da429b4c7b83a83804b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ProjectilePrefab: {fileID: 273056810}
 --- !u!4 &779209704
 Transform:
   m_ObjectHideFlags: 0
@@ -270,6 +314,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PF: {fileID: 779209703}
+  m_PFData:
+    ProjectileData:
+      ImpactDamage: 0
+      ImpactDamageChangeByDistance: 0
+      Explodable: 0
+      MaxExplosionDamage: 0
+      BlastRange: 0
+      NumberOfImpactsToDetonate: 0
+      InitialForce: 0
+      MaxInitialSpreadAngle: 0
+      DropOffRatio: 0
+    ChargingData: {fileID: 0}
+    FiringData:
+      BaseRate: 0.2
+      ReloadingData:
+        Shots: []
+        Time: 0
+      BurstData:
+        Shots:
+        - NumberOfProjectiles: 1
+        - NumberOfProjectiles: 3
+        Time: 0.5
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

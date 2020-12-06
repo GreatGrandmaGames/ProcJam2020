@@ -2,7 +2,7 @@
 
 namespace Grandma.PF
 {
-    public class PFIdleState : State
+    public class IdleState : State
     {
         public StateTransition FireTransition { get; } = new StateTransition();
 
