@@ -10,19 +10,9 @@ namespace Grandma.PF
     [CreateAssetMenu(menuName = "PF/Firearm Data")]
     public class PFData
     {
-        [SerializeField]
         public ProjectileData ProjectileData;
-        [SerializeField]
-        public RateOfFireData RateOfFire;
-
-        [Header("Charge Time")]
-        [Tooltip("The time to fully charge the weapon. Measured in seconds")]
-        public float chargeTime;
-        [Tooltip("Does the weapon need to be fully charged in order to fire?")]
-        public bool requireFullyCharged;
-
-        [Header("Multishot")]
-        [Tooltip("The number of shots created on launch")]
-        public int NumberOfShots = 1;
+        public ChargingData ChargingData;
+        public FiringData FiringData;
+        //public CooldownData CooldownData;
     }
 }
