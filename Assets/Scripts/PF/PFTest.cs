@@ -26,5 +26,10 @@ public class PFTest : MonoBehaviour
         {
             m_PF.CancelFire();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            m_PF.Reload();
+        }
     }
 }

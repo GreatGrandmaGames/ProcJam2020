@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Grandma.PF
 {
-    public class ChargingData : MonoBehaviour
+    [Serializable]
+    public class ChargingData
     {
         [Header("Charge Time")]
         [Tooltip("The time to fully charge the weapon. Measured in seconds")]

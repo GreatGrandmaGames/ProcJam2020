@@ -9,6 +9,7 @@ namespace Grandma.PF
 
         public SubscriptionValue<int> CurrentAmmo { get; set; } 
         public PFProjectile ProjectilePrefab { get; set; }
+        public Transform BarrelTransform { get; set; }
 
         public FiringData Data { get; set; }
         public ProjectileData ProjectileData { get; set; }
@@ -54,11 +55,16 @@ namespace Grandma.PF
             {
                 StopFiringTransition.Transition();
             }
+
+            if(CurrentAmmo.Value <= 0)
+            {
+                StopFiringTransition.Transition();
+            }
         }
 
         private void FireShot()
         {
-            int numProjectiles = Data.BurstData.Shots[m_CurrentShot].NumberOfProjectiles;
+            int numProjectiles = Mathf.Min(CurrentAmmo.Value, Data.BurstData.Shots[m_CurrentShot].NumberOfProjectiles);
 
             for (int j = 0; j < numProjectiles; j++)
             {
@@ -77,6 +83,11 @@ namespace Grandma.PF
             {
                 PFProjectile projectile = Object.Instantiate(ProjectilePrefab);
                 projectile.Data = ProjectileData;
+
+                projectile.transform.position = BarrelTransform.position;
+                projectile.transform.forward = BarrelTransform.forward;
+                
+                projectile.Launch();
             }
         }
     }

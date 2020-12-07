@@ -13,10 +13,10 @@ namespace Grandma.PF
         [Header("Impact Damage")]
         [Tooltip("The base damage caused by an impact of a projectile on a Damageable object. A negative value will heal")]
         [SerializeField]
-        public float ImpactDamage;
+        public int ImpactDamage;
         [Tooltip("The rate of damage change over distance travelled. Measured in 1/meters.")]
         [SerializeField]
-        public float ImpactDamageChangeByDistance;
+        public int ImpactDamageChangeByDistance;
 
 
         [Header("Area of Effect Damage")]
@@ -25,7 +25,7 @@ namespace Grandma.PF
         public bool Explodable;
         [Tooltip("The damage caused if distance to impact is zero")]
         [SerializeField]
-        public float MaxExplosionDamage;
+        public int MaxExplosionDamage;
         [Tooltip("The distance at which damage falls to zero. mEasured in meters")]
         [SerializeField]
         public float BlastRange;

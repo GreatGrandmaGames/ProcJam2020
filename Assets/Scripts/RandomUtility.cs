@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Grandma.Utility
+namespace Grandma
 {
     public static class RandomUtility
     {
