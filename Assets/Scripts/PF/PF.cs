@@ -6,6 +6,8 @@ namespace Grandma.PF
     {
         [SerializeField]
         private PFProjectile m_ProjectilePrefab;
+        [SerializeField]
+        private Transform m_BarrelTransform;
 
         public SubscriptionValue<int> CurrentAmmo { get; } = new SubscriptionValue<int>();
 
@@ -13,6 +15,7 @@ namespace Grandma.PF
         private IdleState m_IdleState;
         private ChargingState m_ChargingState;
         private FiringState m_FiringState;
+        private ReloadState m_ReloadState;
         private StateMachine m_StateMachine;
 
         private void Awake()
@@ -32,7 +35,8 @@ namespace Grandma.PF
             m_FiringState = new FiringState()
             {
                 ProjectilePrefab = m_ProjectilePrefab,
-                CurrentAmmo = CurrentAmmo
+                CurrentAmmo = CurrentAmmo,
+                BarrelTransform = m_BarrelTransform
             };
 
             m_ChargingState = new ChargingState()
@@ -40,8 +44,18 @@ namespace Grandma.PF
                 NextState = m_FiringState
             };
 
+            m_ReloadState = new ReloadState()
+            {
+                NextState = m_IdleState,
+                CurrentAmmo = CurrentAmmo
+            };
+
             m_IdleState.FireTransition.State = m_ChargingState;
+            m_IdleState.ReloadTransition.State = m_ReloadState;
+
             m_ChargingState.CancelTransition.State = m_IdleState;
+            m_ReloadState.CancelTransition.State = m_IdleState;
+
             m_FiringState.StopFiringTransition.State = m_IdleState;
 
             m_StateMachine = new StateMachine(m_IdleState);
@@ -52,6 +66,7 @@ namespace Grandma.PF
             m_ChargingState.Data = data.ChargingData;
             m_FiringState.Data = data.FiringData;
             m_FiringState.ProjectileData = data.ProjectileData;
+            m_ReloadState.Data = data.ReloadData;
             //cooldown
         }
 
@@ -63,6 +78,11 @@ namespace Grandma.PF
         public void CancelFire()
         {
             m_ChargingState.CancelTransition.Transition();
+        }
+
+        public void Reload()
+        {
+            m_IdleState.ReloadTransition.Transition();
         }
     }
 }

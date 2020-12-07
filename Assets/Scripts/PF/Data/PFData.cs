@@ -13,6 +13,7 @@ namespace Grandma.PF
         public ProjectileData ProjectileData;
         public ChargingData ChargingData;
         public FiringData FiringData;
+        public ReloadData ReloadData;
         //public CooldownData CooldownData;
     }
 }
